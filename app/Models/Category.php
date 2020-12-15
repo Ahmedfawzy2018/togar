@@ -20,13 +20,4 @@ class Category extends Model
         'parent_id' =>  'integer',
     ];
 
-    public function parent() // relation will be to get the parent category of a category
-	{
-	    return $this->belongsTo(Category::class, 'parent_id');
-	}
-
-	public function children() //for our category to return the children for our given category.
-	{
-	    return $this->hasMany(Category::class, 'parent_id');
-	}
 }

@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Category 
-Route::prefix('/categories')->group(fundtion(){
+Route::prefix('/categories')->group(function(){
 	Route::get('',[CategoryController::class,'index'] );
 	Route::post('',[CategoryController::class,'store'] );
 	Route::get('/{category}',[CategoryController::class,'show'] );
@@ -29,7 +29,7 @@ Route::prefix('/categories')->group(fundtion(){
 
 
 //Product
-Route::prefix('/products')->group(fundtion(){
+Route::prefix('/products')->group(function(){
 	Route::get('',[ProductController::class,'index'] );
 	Route::post('',[ProductController::class,'store'] );
 	Route::get('/{product}',[ProductController::class,'show'] );
