@@ -9,5 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+	public $Successstatus = 200 ;
+    public $FailStatus = 500 ;
+    
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

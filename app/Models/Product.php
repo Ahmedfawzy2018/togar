@@ -17,6 +17,6 @@ class Product extends Model
          
     public function categories() //for our category to return the children for our given category.
 	{
-	    return $this->hasMany(Category::class, 'category_id');
+	    return $this->belongsTo(Category::class, 'category_id');
 	}        
 }

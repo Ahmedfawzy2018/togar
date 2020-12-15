@@ -19,19 +19,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Category 
-Route::get('categories','App\Http\Controllers\CategoryController@index') ;
-Route::post('new-category','App\Http\Controllers\CategoryController@store')->name('new-category') ;
-Route::get('show-category/{id}','App\Http\Controllers\CategoryController@show') ;
-Route::get('edit-category/{id}','App\Http\Controllers\CategoryController@edit') ;
-Route::post('update-category/{id}','App\Http\Controllers\CategoryController@update')->name('update-category') ;
-Route::delete('delete-category/{id}','App\Http\Controllers\CategoryController@destroy') ;
-
+Route::prefix('/categories')->group(fundtion(){
+	Route::get('',[CategoryController::class,'index'] );
+	Route::post('',[CategoryController::class,'store'] );
+	Route::get('/{category}',[CategoryController::class,'show'] );
+	Route::put('/{category}',[CategoryController::class,'update'] );
+	Route::delete('/{category}',[CategoryController::class,'destroy'] );
+});
 
 
 //Product
-Route::get('products','App\Http\Controllers\ProductController@index') ;
-Route::post('new-product','App\Http\Controllers\ProductController@store')->name('new-product') ;
-Route::get('show-product/{id}','App\Http\Controllers\ProductController@show') ;
-Route::get('edit-product/{id}','App\Http\Controllers\ProductController@edit') ;
-Route::post('update-product/{id}','App\Http\Controllers\ProductController@update')->name('update-product') ;
-Route::delete('delete-product/{id}','App\Http\Controllers\ProductController@destroy') ;
+Route::prefix('/products')->group(fundtion(){
+	Route::get('',[ProductController::class,'index'] );
+	Route::post('',[ProductController::class,'store'] );
+	Route::get('/{product}',[ProductController::class,'show'] );
+	Route::put('/{product}',[ProductController::class,'update'] );
+	Route::delete('/{product}',[ProductController::class,'destroy'] );
+});
