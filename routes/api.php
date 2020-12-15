@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Category 
 Route::prefix('/categories')->group(function(){
-	Route::get('',[CategoryController::class,'index'] );
-	Route::post('',[CategoryController::class,'store'] );
-	Route::get('/{category}',[CategoryController::class,'show'] );
-	Route::put('/{category}',[CategoryController::class,'update'] );
-	Route::delete('/{category}',[CategoryController::class,'destroy'] );
+	Route::get('','App\Http\Controllers\CategoryController@index');
+	Route::post('','App\Http\Controllers\CategoryController@store');
+	Route::get('/{category}','App\Http\Controllers\CategoryController@show' );
+	Route::put('/{category}','App\Http\Controllers\CategoryController@update');
+	Route::delete('/{category}','App\Http\Controllers\CategoryController@destroy' );
 });
 
 
 //Product
 Route::prefix('/products')->group(function(){
-	Route::get('',[ProductController::class,'index'] );
-	Route::post('',[ProductController::class,'store'] );
-	Route::get('/{product}',[ProductController::class,'show'] );
-	Route::put('/{product}',[ProductController::class,'update'] );
-	Route::delete('/{product}',[ProductController::class,'destroy'] );
+	Route::get('','App\Http\Controllers\ProductController@index' );
+	Route::post('','App\Http\Controllers\ProductController@store' );
+	Route::get('/{product}','App\Http\Controllers\ProductController@show' );
+	Route::put('/{product}','App\Http\Controllers\ProductController@update' );
+	Route::delete('/{product}','App\Http\Controllers\ProductController@destroy' );
 });
